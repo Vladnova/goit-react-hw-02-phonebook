@@ -1,13 +1,16 @@
-.form {
-  max-width: 400px;
+.containerFilter {
   margin: 0 auto;
-  margin-bottom: 20px;
+  max-width: 400px;
   padding: 0 20px;
+  margin-bottom: 50px;
 }
 
-.label {
+.titleFilter {
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(47, 47, 177);
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -15,7 +18,7 @@
   width: 100%;
   border-radius: 6px;
   padding: 5px;
-  margin-bottom: 10px;
+
   outline: none;
   border: 3px solid black;
 }
@@ -25,17 +28,4 @@
 .input:not(:placeholder-shown) {
   border: 3px solid yellowgreen;
   border-radius: 6px;
-}
-
-.button {
-  padding: 8px 15px;
-  border-radius: 8px;
-  background-color: yellowgreen;
-  color: azure;
-}
-
-.button:hover,
-.button:focus {
-  background-color: azure;
-  color: yellowgreen;
 }

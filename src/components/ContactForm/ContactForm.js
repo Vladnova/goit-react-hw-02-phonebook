@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -14,13 +15,7 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name } = this.state;
-    const allNameContacts = this.props.contactsApp.map(contact => contact.name);
-
-    allNameContacts.includes(name)
-      ? alert(`${name} is already in contacts`)
-      : this.props.onAddContacts(this.state);
-
+    this.props.onAddContacts(this.state);
     this.resetSubmit();
   };
 
@@ -31,33 +26,45 @@ class ContactForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={styles.form} onSubmit={this.handleSubmit}>
         <label>
-          <p>Name</p>
+          <p className={styles.label}>Name</p>
           <input
+            className={styles.input}
             type="text"
             name="name"
             value={name}
+            placeholder=" "
             onChange={this.handleInputChange}
           />
         </label>
 
         <label>
-          <p> Number</p>
+          <p className={styles.label}> Number</p>
           <input
+            className={styles.input}
             type="tel"
             name="number"
             value={number}
+            placeholder=" "
             onChange={this.handleInputChange}
           />
         </label>
 
-        <button type="submit" disabled={!name || !number}>
+        <button
+          className={styles.button}
+          type="submit"
+          disabled={!name || !number}
+        >
           Add contact
         </button>
       </form>
     );
   }
 }
+
+ContactForm.propTypes = {
+  onAddContacts: PropTypes.func.isRequired,
+};
 
 export default ContactForm;
